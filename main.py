@@ -55,6 +55,9 @@ best = df.loc[df["total_audi"].idxmax()]
 st.write(f"216편 가운데 {under_1m}편이 100만 명 미만입니다. "
          f"가장 많이 본 영화는 {best['movieNm']}({best['total_audi']:,}명)입니다.")
 st.caption("이 그래프로 알 수 있는 것: (한 문장으로 적어 보세요)")
-좋아, 네 번째 그래프를 추가해.
-- first_scrn(개봉일 스크린수)과 total_audi(총 관객)의 산점도를 그려 줘.
-- 점에 마우스를 올리면 영화명이 보이게 하고, 장르별로 점 색을 다르게 해 줘.
+# ── 그래프 4. 스크린 수와 총 관객 (산점도) ──
+st.header("4. 개봉일 스크린 수와 총 관객 (산점도)")
+fig4 = px.scatter(df, x="first_scrn", y="total_audi", color="장르",
+                  hover_name="movieNm")
+st.plotly_chart(fig4, width="stretch")
+st.caption("이 그래프로 알 수 있는 것: (한 문장으로 적어 보세요)")
